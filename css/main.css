@@ -1,0 +1,172 @@
+:root {
+  --cards-margin: 20px;
+  --field-size: 2;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 30px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  max-width: 1250px;
+}
+
+.cards-game-app {
+  margin-bottom: 20px;
+  display: none;
+  gap: 20px;
+
+  grid-template-columns: repeat(var(--field-size), 1fr);
+
+  justify-items: center;
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+.cards-game-app.stop-game {
+  pointer-events: none;
+}
+
+.cards-game-app.display {
+  display: grid;
+}
+
+.cards-game__form-wrap {
+  display: none;
+}
+
+.cards-game__form-wrap.display {
+  display: block;
+}
+
+.cards-game__title {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 10px;
+
+  text-align: center;
+}
+
+.cards-game__desc {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 15px;
+
+  font-size: 20px;
+
+  text-align: center;
+}
+
+.cards-game__form {
+  display: flex;
+  justify-content: center;
+}
+
+.cards-game__input {
+  margin-right: 20px;
+}
+
+.cards-game__item {
+  position: relative;
+  width: 95px;
+  height: 120px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 10px;
+
+  perspective: 1000px;
+}
+
+.cards-game__item.active {
+  box-shadow: none;
+}
+
+.cards-game__item.active .cards-game__item-front {
+  transform: rotateY(360deg);
+}
+
+.cards-game__item.active .cards-game__item-back {
+  transform: rotateY(180deg);
+}
+
+.cards-game__item-front {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: 'Beau Rivage', cursive;
+  font-size: 60px;
+
+  transition: transform 0.7s;
+  backface-visibility: hidden;
+
+  transform: rotateY(180deg);
+
+  border-radius: 10px;
+
+  background-color: #DEB887;
+}
+
+.cards-game__item-back {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
+  transition: transform 0.7s;
+  backface-visibility: hidden;
+
+  background-image: url('../img/card-back.jpg');
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
+  border-radius: 10px;
+}
+
+.cards-game__timer-wrap {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.cards-game__finish {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 20px;
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.cards-game__finish--win {
+  color: green;
+}
+
+.cards-game__finish--lose {
+  color: red;
+}
+
+.cards-game__restart {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+}
+
+.opacity {
+  opacity: 0;
+}
